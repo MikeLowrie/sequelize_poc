@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+        "target": "es2020", //es6 is needed for sqlite3/Sequelize, but using an await in index.js required es2017 or higher
+        "experimentalDecorators": true,
+        "noEmit": true,
+        "emitDecoratorMetadata": true,
+        "module": "nodenext",
+        "moduleResolution": "nodenext",
+        "baseUrl": "./src",
+        "paths": {
+            "@models/*": ["./db/models/*"]
+        },
+        "forceConsistentCasingInFileNames": true,
+        "allowImportingTsExtensions": true
+    }
+}
