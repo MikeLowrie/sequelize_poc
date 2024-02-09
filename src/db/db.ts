@@ -1,5 +1,6 @@
 import { Sequelize } from "sequelize-typescript";
 import { Person } from "./models/index.ts";
+import License from "./models/license.ts";
 
 const sequelize = new Sequelize({
     database: 'erictest',
@@ -8,7 +9,7 @@ const sequelize = new Sequelize({
     username: 'root',
     password: '',
     storage: './db/erictest.db',
-    models: [Person]
+    models: [Person, License]
     //models: [__dirname] //[__dirname + '/models'], // or [Player, Team],
   });
 
