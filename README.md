@@ -1,3 +1,6 @@
+2/9 progress
+ - [ ] Get Person and License relation to work. Currently, the PK/FK and @HasOne/@BelongsTo aren't working. Having @BelongsTo in License causes startup errors.
+
 1/24/24 progress
  - [ ] Add an additional class that will serve as a one-to-many relation.
  - [ ] Add an additional class that will serve as a many-to-many relation.
