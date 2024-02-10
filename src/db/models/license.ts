@@ -18,11 +18,11 @@ export default class License extends Model {
     @Column(DataType.STRING)
     public licensetype!: string;
 
-    //@ForeignKey(() => Person)
+    @ForeignKey(() => Person)
     //@Column(DataType.STRING)
-    //public firstname!: string;
+    public firstname!: string;
 
     //@BelongsTo(() => Person)
-    @BelongsTo(() => Person, { foreignKey: "firstname" })
-    person: Person;
+    //@BelongsTo(() => Person, "firstname")
+    //person: Person;
 }

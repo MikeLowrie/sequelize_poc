@@ -20,35 +20,21 @@ try {
   await sequelize.sync({force: true});//, match: /_test$/});
   console.log("Force sync completed on test database.");
   
-  let person = Person.build({firstname: "Eric", lastname: "Lowrie"});
+  let person = Person.build({firstname: "Eric", lastname: "Lowrie", birthday: "1990-05-25 00:12:34"});
   await person.save();
   console.log("Build/saved a Person.");
-  let secondperson = await Person.create({firstname: "Firstname", lastname: "Lastname"});
+  let secondperson = await Person.create({firstname: "Firstname", lastname: "Lastname", birthday: "1980-01-01 00:00:00"});
   console.log("Created a Person.");
-
-  //console.log("SELECT * FROM Person");
-  //let allpeople = await Person.findAll();
-  //console.log(JSON.stringify(allpeople, null, 2));
 
   let firstlicense = License.build(
     { 
       licensenumber: 123, 
       licenseholder: person.firstname + " " + person.lastname, 
+      PersonId: 1,
       licensetype: "Driver License",
-      person: person
+      PersonFirstname: person.firstname
     }
   );
-  Person.update({
-    License: firstlicense
-  }, {
-    where: { firstname: "Eric" }
-  });
-  /*
-  Person.update({
-    licensenumber: firstlicense.licensenumber
-  }, {
-    where: { firstname: "Eric" }
-  }).then(() => {}); */
   await firstlicense.save();
   await person.save();
 
@@ -61,11 +47,6 @@ try {
   console.log("SELECT * FROM License");
   let licenses = await License.findAll();
   console.log(JSON.stringify(licenses, null, 2));
-
-  console.log("---------------------");
-  console.log("Person: ", person.firstname + " " + person.lastname);
-  console.log("Person.License: ", person.license);
-  console.log("Person.License.LicenseHolder: ", person.license.licenseholder)
 } catch (e) {
   console.log("Sync failed: ", e);
 } finally {
