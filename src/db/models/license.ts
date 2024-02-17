@@ -18,11 +18,7 @@ export default class License extends Model {
     @Column(DataType.STRING)
     public licensetype!: string;
 
+    // This gets set in th DB as "PersonFirstname"
     @ForeignKey(() => Person)
-    //@Column(DataType.STRING)
     public firstname!: string;
-
-    //@BelongsTo(() => Person)
-    //@BelongsTo(() => Person, "firstname")
-    //person: Person;
 }

@@ -6,7 +6,7 @@
     "type": "module",
     "scripts": {
         "test": "jest",
-        "prog": "ts-node ./src/index.ts",
+        "prog": "ts-node-esm ./src/index.ts",
         "progchrome": "node --trace-warnings --loader ts-node/esm ./src/index.ts"
     },
     "keywords": [],
